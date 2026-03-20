@@ -37,7 +37,7 @@
     <h1>سكينة · Sakina</h1>
     <div class="subtitle">Islamischer Wellness Coach</div>
     <div class="updated">Datenschutzerklärung / Privacy Policy / سياسة الخصوصية</div>
-    <div class="updated">Letzte Aktualisierung: März 2026 · Version 2.0</div>
+    <div class="updated">Letzte Aktualisierung: 20. März 2026 · Version 3.0</div>
 </div>
 
 <div class="lang-switcher">
@@ -49,13 +49,13 @@
 <!-- ==================== DEUTSCH ==================== -->
 <div id="deutsch" class="section">
     <h2>🇩🇪 Datenschutzerklärung</h2>
-    
+
     <div class="highlight-box">
-        <strong>Zusammenfassung:</strong> Sakina respektiert deine Privatsphäre vollständig. Die App sammelt keine personenbezogenen Daten, sendet keine Daten an Server und funktioniert komplett offline. Keine Registrierung, keine Cloud, keine Werbung.
+        <strong>Zusammenfassung:</strong> Sakina ist eine Offline-First-App. Alle Daten werden primär lokal auf deinem Gerät gespeichert. Zusätzlich nutzen wir Firebase-Dienste von Google für Absturzberichte, anonyme Nutzungsstatistiken und optionale Cloud-Sicherung. Es gibt keine Werbung, keine personalisierte Datenerhebung und keinen Verkauf von Daten an Dritte. Die App funktioniert vollständig ohne Internetverbindung.
     </div>
 
-    <h3>1. Welche Daten werden gespeichert?</h3>
-    <p>Sakina speichert folgende Daten <strong>ausschließlich lokal auf deinem Gerät</strong>:</p>
+    <h3>1. Lokale Datenspeicherung</h3>
+    <p>Sakina speichert folgende Daten <strong>lokal auf deinem Gerät</strong> (SharedPreferences):</p>
     <ul>
         <li>Dein gewählter Anzeigename (für die persönliche Begrüßung)</li>
         <li>Spracheinstellung (Deutsch, Englisch oder Arabisch)</li>
@@ -66,42 +66,75 @@
         <li>Gewählte Hintergrundgeräusche-Einstellung</li>
         <li>Benachrichtigungs-Einstellung</li>
     </ul>
-    <p><strong>Diese Daten verlassen niemals dein Gerät und werden nicht an Dritte weitergegeben.</strong></p>
+    <p>Diese lokalen Daten sind die primäre Datenquelle. <strong>Die App funktioniert vollständig offline.</strong></p>
 
-    <h3>2. Keine Datenerhebung</h3>
-    <p>Sakina erhebt <strong>keinerlei personenbezogene Daten</strong>:</p>
+    <h3>2. Firebase Analytics</h3>
+    <p>Sakina nutzt <strong>Google Analytics for Firebase</strong> zur anonymen Erfassung von Nutzungsstatistiken:</p>
     <ul>
-        <li><strong>Kein Konto erforderlich:</strong> Du musst dich nicht registrieren.</li>
-        <li><strong>Kein Tracking:</strong> Keine Analyse-, Tracking- oder Werbe-Tools.</li>
-        <li><strong>Keine Cloud:</strong> Alle Daten bleiben lokal auf deinem Gerät.</li>
-        <li><strong>Keine Netzwerkanfragen:</strong> Die App funktioniert vollständig offline.</li>
-        <li><strong>Kein Standort:</strong> Die App fragt keinen Standort ab.</li>
+        <li>Welche Emotionen gewählt werden (z.B. „Traurig", „Gestresst")</li>
+        <li>Ob Sitzungen gestartet und abgeschlossen werden</li>
+        <li>Dauer der Coaching-Sitzungen</li>
+        <li>Nutzung von Tafakkur, Sabr-Training und Tagebuch</li>
+        <li>Gewählte Sprache und Hintergrundgeräusche</li>
+    </ul>
+    <p><strong>Zweck:</strong> Verständnis der App-Nutzung zur Verbesserung der Inhalte und Funktionen.</p>
+    <p><strong>Keine persönlichen Inhalte</strong> (z.B. Tagebucheinträge oder Namen) werden an Analytics gesendet.</p>
+    <p>Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzerklärung</a></p>
+
+    <h3>3. Firebase Crashlytics</h3>
+    <p>Sakina nutzt <strong>Firebase Crashlytics</strong> zur automatischen Erfassung von Absturzberichten:</p>
+    <ul>
+        <li>Gerätetyp und Betriebssystem-Version</li>
+        <li>Technische Absturz-Logs (Stack Traces)</li>
+        <li>App-Version und Build-Nummer</li>
+    </ul>
+    <p><strong>Zweck:</strong> Erkennung und Behebung von App-Fehlern zur Verbesserung der Stabilität.</p>
+    <p><strong>Es werden keine persönlichen Inhalte</strong> (Tagebucheinträge, Namen, Gebete) in Absturzberichten erfasst.</p>
+
+    <h3>4. Firebase Authentication</h3>
+    <p>Sakina nutzt <strong>anonyme Authentifizierung</strong> über Firebase:</p>
+    <ul>
+        <li>Beim ersten Start wird automatisch eine anonyme Benutzer-ID erstellt</li>
+        <li><strong>Keine persönlichen Daten sind nötig</strong> — kein Name, keine E-Mail, kein Passwort</li>
+        <li>Die anonyme ID dient ausschließlich der Zuordnung von Cloud-Daten</li>
+        <li>Optional: Du kannst später eine E-Mail-Adresse hinterlegen, um deine Daten geräteübergreifend zu synchronisieren (freiwillig)</li>
     </ul>
 
-    <h3>3. Drittanbieter-Dienste</h3>
-    <p>Sakina integriert <strong>keine Drittanbieter-Dienste</strong> die Nutzerdaten erheben. Es gibt keine Werbung, keine Analyse-Plattformen, keine Social-Media-Integrationen und keine externen SDKs.</p>
+    <h3>5. Cloud Firestore (Optionale Cloud-Sicherung)</h3>
+    <p>Zusätzlich zur lokalen Speicherung werden folgende Daten <strong>verschlüsselt in der Cloud</strong> (Google Cloud Firestore) gesichert:</p>
+    <ul>
+        <li>Sitzungsverlauf (Protokoll-ID, Emotion, Dauer)</li>
+        <li>Tagebucheinträge (Emotion, Prompt, Text)</li>
+        <li>Fortschritt (Gesamtsitzungen, Streak, Emotionsverteilung)</li>
+        <li>Profildaten (Name, Spracheinstellung)</li>
+    </ul>
+    <p><strong>Speicherort:</strong> Google Cloud, EU-Region.</p>
+    <p><strong>Zugriff:</strong> Nur du hast Zugriff auf deine Daten (gesichert durch Firebase Security Rules).</p>
+    <p><strong>Tagebucheinträge werden nicht analysiert oder ausgewertet</strong> — sie dienen ausschließlich der persönlichen Dokumentation.</p>
+    <p>Die App funktioniert vollständig ohne Cloud-Verbindung. Firestore ist ein zusätzliches Backup.</p>
 
-    <h3>4. Keine Werbung</h3>
-    <p>Sakina enthält keine Werbung und keine Werbe-SDKs.</p>
+    <h3>6. Keine Werbung</h3>
+    <p>Sakina enthält <strong>keine Werbung</strong> und keine Werbe-SDKs. Daten werden <strong>nicht an Dritte verkauft</strong>.</p>
 
-    <h3>5. Datensicherheit</h3>
-    <p>Alle Daten werden lokal in SharedPreferences auf deinem Gerät gespeichert. Da keine Daten übertragen werden, besteht kein Risiko eines serverseitigen Datenlecks.</p>
+    <h3>7. Datensicherheit</h3>
+    <p>Lokale Daten werden in SharedPreferences auf deinem Gerät gespeichert. Cloud-Daten werden verschlüsselt übertragen (TLS) und in Google Cloud Firestore mit Firebase Security Rules geschützt. Nur authentifizierte Nutzer können ihre eigenen Daten lesen und schreiben.</p>
 
-    <h3>6. Kinder</h3>
+    <h3>8. Kinder</h3>
     <p>Sakina erhebt wissentlich keine Daten von Kindern unter 13 Jahren. Die App enthält keine Registrierung, keine In-App-Käufe und keine Werbung.</p>
 
-    <h3>7. Deine Rechte</h3>
+    <h3>9. Deine Rechte</h3>
     <p>Du kannst jederzeit:</p>
     <ul>
-        <li>Alle gespeicherten Daten über <strong>Einstellungen → Daten zurücksetzen</strong> löschen</li>
+        <li>Alle lokalen Daten über <strong>Einstellungen → Daten zurücksetzen</strong> löschen</li>
         <li>Die App deinstallieren (entfernt alle lokalen Daten)</li>
+        <li><strong>Löschung deiner Cloud-Daten</strong> per E-Mail anfordern (siehe Kontakt)</li>
     </ul>
 
-    <h3>8. Zukünftige Änderungen</h3>
-    <p>Sollten wir Funktionen einführen die eine Datenerhebung beinhalten (z.B. optionale Cloud-Synchronisation), werden wir diese Datenschutzerklärung aktualisieren und Nutzer vor jeglicher Datenerhebung durch ein App-Update informieren.</p>
+    <h3>10. Änderungen</h3>
+    <p>Bei wesentlichen Änderungen an dieser Datenschutzerklärung werden Nutzer durch ein App-Update informiert. Die aktuelle Version ist immer unter dieser URL verfügbar.</p>
 
-    <h3>9. Kontakt</h3>
-    <p>Bei Fragen zum Datenschutz:</p>
+    <h3>11. Kontakt</h3>
+    <p>Für Datenschutzfragen oder Datenlöschungs-Anfragen:</p>
     <p>Housam Abo Essa<br>
     E-Mail: <a href="mailto:gptbusinesshub@gmail.com">gptbusinesshub@gmail.com</a></p>
 </div>
@@ -109,13 +142,13 @@
 <!-- ==================== ENGLISH ==================== -->
 <div id="english" class="section">
     <h2>🇬🇧 Privacy Policy</h2>
-    
+
     <div class="highlight-box">
-        <strong>Summary:</strong> Sakina fully respects your privacy. The app collects no personal data, sends no data to servers, and works completely offline. No registration, no cloud, no ads.
+        <strong>Summary:</strong> Sakina is an offline-first app. All data is primarily stored locally on your device. We additionally use Google's Firebase services for crash reporting, anonymous usage analytics, and optional cloud backup. There is no advertising, no personalized data collection, and no selling of data to third parties. The app works fully without an internet connection.
     </div>
 
-    <h3>1. What data is stored?</h3>
-    <p>Sakina stores the following data <strong>exclusively on your local device</strong>:</p>
+    <h3>1. Local Data Storage</h3>
+    <p>Sakina stores the following data <strong>locally on your device</strong> (SharedPreferences):</p>
     <ul>
         <li>Your chosen display name (for personalized greeting)</li>
         <li>Language preference (German, English, or Arabic)</li>
@@ -126,42 +159,75 @@
         <li>Ambient sound preference</li>
         <li>Notification setting</li>
     </ul>
-    <p><strong>This data never leaves your device and is not shared with third parties.</strong></p>
+    <p>This local data is the primary data source. <strong>The app works fully offline.</strong></p>
 
-    <h3>2. No Data Collection</h3>
-    <p>Sakina collects <strong>no personal data whatsoever</strong>:</p>
+    <h3>2. Firebase Analytics</h3>
+    <p>Sakina uses <strong>Google Analytics for Firebase</strong> to collect anonymous usage statistics:</p>
     <ul>
-        <li><strong>No account required:</strong> No registration needed.</li>
-        <li><strong>No tracking:</strong> No analytics, tracking, or advertising tools.</li>
-        <li><strong>No cloud:</strong> All data stays locally on your device.</li>
-        <li><strong>No network requests:</strong> The app works entirely offline.</li>
-        <li><strong>No location:</strong> The app does not request location data.</li>
+        <li>Which emotions are selected (e.g. "Sad", "Stressed")</li>
+        <li>Whether sessions are started and completed</li>
+        <li>Duration of coaching sessions</li>
+        <li>Usage of Tafakkur, Sabr Training, and Journal</li>
+        <li>Selected language and ambient sound</li>
+    </ul>
+    <p><strong>Purpose:</strong> Understanding app usage to improve content and features.</p>
+    <p><strong>No personal content</strong> (e.g. journal entries or names) is sent to Analytics.</p>
+    <p>More information: <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></p>
+
+    <h3>3. Firebase Crashlytics</h3>
+    <p>Sakina uses <strong>Firebase Crashlytics</strong> for automatic crash reporting:</p>
+    <ul>
+        <li>Device type and operating system version</li>
+        <li>Technical crash logs (stack traces)</li>
+        <li>App version and build number</li>
+    </ul>
+    <p><strong>Purpose:</strong> Detecting and fixing app errors to improve stability.</p>
+    <p><strong>No personal content</strong> (journal entries, names, prayers) is included in crash reports.</p>
+
+    <h3>4. Firebase Authentication</h3>
+    <p>Sakina uses <strong>anonymous authentication</strong> via Firebase:</p>
+    <ul>
+        <li>An anonymous user ID is automatically created on first launch</li>
+        <li><strong>No personal data is required</strong> — no name, no email, no password</li>
+        <li>The anonymous ID is used solely to associate cloud data</li>
+        <li>Optional: You can later add an email address to sync your data across devices (voluntary)</li>
     </ul>
 
-    <h3>3. Third-Party Services</h3>
-    <p>Sakina integrates <strong>no third-party services</strong> that collect user data. There are no ads, no analytics platforms, no social media integrations, and no external SDKs.</p>
+    <h3>5. Cloud Firestore (Optional Cloud Backup)</h3>
+    <p>In addition to local storage, the following data is <strong>securely backed up in the cloud</strong> (Google Cloud Firestore):</p>
+    <ul>
+        <li>Session history (protocol ID, emotion, duration)</li>
+        <li>Journal entries (emotion, prompt, text)</li>
+        <li>Progress (total sessions, streak, emotion distribution)</li>
+        <li>Profile data (name, language setting)</li>
+    </ul>
+    <p><strong>Storage location:</strong> Google Cloud, EU region.</p>
+    <p><strong>Access:</strong> Only you have access to your data (secured by Firebase Security Rules).</p>
+    <p><strong>Journal entries are not analyzed or evaluated</strong> — they serve solely for personal documentation.</p>
+    <p>The app works fully without a cloud connection. Firestore is an additional backup.</p>
 
-    <h3>4. No Advertising</h3>
-    <p>Sakina contains no advertising and no advertising SDKs.</p>
+    <h3>6. No Advertising</h3>
+    <p>Sakina contains <strong>no advertising</strong> and no advertising SDKs. Data is <strong>not sold to third parties</strong>.</p>
 
-    <h3>5. Data Security</h3>
-    <p>All data is stored locally in SharedPreferences on your device. Since no data is transmitted, there is no risk of server-side data breaches.</p>
+    <h3>7. Data Security</h3>
+    <p>Local data is stored in SharedPreferences on your device. Cloud data is transmitted encrypted (TLS) and protected in Google Cloud Firestore with Firebase Security Rules. Only authenticated users can read and write their own data.</p>
 
-    <h3>6. Children's Privacy</h3>
+    <h3>8. Children's Privacy</h3>
     <p>Sakina does not knowingly collect data from children under 13. The app contains no registration, no in-app purchases, and no advertising.</p>
 
-    <h3>7. Your Rights</h3>
+    <h3>9. Your Rights</h3>
     <p>You can at any time:</p>
     <ul>
-        <li>Delete all stored data via <strong>Settings → Reset Data</strong></li>
+        <li>Delete all local data via <strong>Settings → Reset Data</strong></li>
         <li>Uninstall the app (removes all local data)</li>
+        <li><strong>Request deletion of your cloud data</strong> by email (see Contact)</li>
     </ul>
 
-    <h3>8. Future Changes</h3>
-    <p>If we introduce features involving data collection (e.g., optional cloud sync), we will update this Privacy Policy and notify users through an app update before any data is collected.</p>
+    <h3>10. Changes</h3>
+    <p>If significant changes are made to this Privacy Policy, users will be notified through an app update. The current version is always available at this URL.</p>
 
-    <h3>9. Contact</h3>
-    <p>For privacy-related questions:</p>
+    <h3>11. Contact</h3>
+    <p>For privacy questions or data deletion requests:</p>
     <p>Housam Abo Essa<br>
     Email: <a href="mailto:gptbusinesshub@gmail.com">gptbusinesshub@gmail.com</a></p>
 </div>
@@ -169,13 +235,13 @@
 <!-- ==================== ARABIC ==================== -->
 <div id="arabic" class="section rtl">
     <h2>🇸🇦 سياسة الخصوصية</h2>
-    
+
     <div class="highlight-box rtl">
-        <strong>ملخص:</strong> سكينة تحترم خصوصيتك بالكامل. التطبيق لا يجمع بيانات شخصية، لا يُرسل بيانات لخوادم، ويعمل بالكامل بدون إنترنت. بدون تسجيل، بدون سحابة، بدون إعلانات.
+        <strong>ملخص:</strong> سكينة تطبيق يعمل بالأساس بدون إنترنت. جميع البيانات تُخزَّن أولاً على جهازك محلياً. بالإضافة لذلك، نستخدم خدمات Firebase من Google لتقارير الأعطال وإحصائيات الاستخدام المجهولة والنسخ الاحتياطي السحابي الاختياري. لا توجد إعلانات، ولا جمع بيانات شخصية، ولا بيع للبيانات لأطراف ثالثة. التطبيق يعمل بالكامل بدون اتصال بالإنترنت.
     </div>
 
-    <h3>١. ما البيانات المُخزّنة؟</h3>
-    <p>يُخزّن تطبيق سكينة البيانات التالية <strong>حصرياً على جهازك محلياً</strong>:</p>
+    <h3>١. التخزين المحلي للبيانات</h3>
+    <p>يُخزّن تطبيق سكينة البيانات التالية <strong>محلياً على جهازك</strong>:</p>
     <ul>
         <li>اسم العرض الذي اخترته (للتحية الشخصية)</li>
         <li>تفضيل اللغة (الألمانية أو الإنجليزية أو العربية)</li>
@@ -186,42 +252,75 @@
         <li>إعداد الأصوات الخلفية</li>
         <li>إعداد الإشعارات</li>
     </ul>
-    <p><strong>هذه البيانات لا تُغادر جهازك أبداً ولا تُشارك مع أطراف ثالثة.</strong></p>
+    <p>هذه البيانات المحلية هي المصدر الأساسي. <strong>التطبيق يعمل بالكامل بدون إنترنت.</strong></p>
 
-    <h3>٢. لا جمع بيانات</h3>
-    <p>سكينة <strong>لا يجمع أي بيانات شخصية</strong>:</p>
+    <h3>٢. Firebase Analytics (تحليلات الاستخدام)</h3>
+    <p>يستخدم سكينة <strong>Google Analytics for Firebase</strong> لجمع إحصائيات استخدام مجهولة:</p>
     <ul>
-        <li><strong>لا حاجة لحساب:</strong> لا تحتاج للتسجيل.</li>
-        <li><strong>لا تتبع:</strong> لا أدوات تحليل أو تتبع أو إعلانات.</li>
-        <li><strong>لا سحابة:</strong> جميع البيانات تبقى محلياً على جهازك.</li>
-        <li><strong>لا طلبات شبكة:</strong> التطبيق يعمل بالكامل بدون اتصال.</li>
-        <li><strong>لا موقع:</strong> التطبيق لا يطلب بيانات الموقع.</li>
+        <li>المشاعر التي يتم اختيارها (مثل: "حزين"، "متوتر")</li>
+        <li>بدء الجلسات وإكمالها</li>
+        <li>مدة جلسات التوجيه</li>
+        <li>استخدام التفكّر وتدريب الصبر واليوميات</li>
+        <li>اللغة المختارة والأصوات الخلفية</li>
+    </ul>
+    <p><strong>الغرض:</strong> فهم كيفية استخدام التطبيق لتحسين المحتوى والميزات.</p>
+    <p><strong>لا يتم إرسال أي محتوى شخصي</strong> (مثل إدخالات اليوميات أو الأسماء) إلى التحليلات.</p>
+    <p>لمزيد من المعلومات: <a href="https://policies.google.com/privacy" target="_blank">سياسة خصوصية Google</a></p>
+
+    <h3>٣. Firebase Crashlytics (تقارير الأعطال)</h3>
+    <p>يستخدم سكينة <strong>Firebase Crashlytics</strong> للإبلاغ التلقائي عن الأعطال:</p>
+    <ul>
+        <li>نوع الجهاز وإصدار نظام التشغيل</li>
+        <li>سجلات الأعطال التقنية</li>
+        <li>إصدار التطبيق ورقم البناء</li>
+    </ul>
+    <p><strong>الغرض:</strong> اكتشاف أخطاء التطبيق وإصلاحها لتحسين الاستقرار.</p>
+    <p><strong>لا يتم تضمين أي محتوى شخصي</strong> (إدخالات اليوميات، الأسماء، الأدعية) في تقارير الأعطال.</p>
+
+    <h3>٤. Firebase Authentication (المصادقة)</h3>
+    <p>يستخدم سكينة <strong>المصادقة المجهولة</strong> عبر Firebase:</p>
+    <ul>
+        <li>يتم إنشاء معرّف مستخدم مجهول تلقائياً عند أول استخدام</li>
+        <li><strong>لا حاجة لأي بيانات شخصية</strong> — لا اسم، لا بريد إلكتروني، لا كلمة مرور</li>
+        <li>المعرّف المجهول يُستخدم فقط لربط البيانات السحابية</li>
+        <li>اختياري: يمكنك لاحقاً إضافة بريد إلكتروني لمزامنة بياناتك بين أجهزة متعددة (طوعي)</li>
     </ul>
 
-    <h3>٣. خدمات الطرف الثالث</h3>
-    <p>سكينة <strong>لا يدمج أي خدمات طرف ثالث</strong> تجمع بيانات المستخدم. لا إعلانات، لا منصات تحليل، لا تكاملات وسائل تواصل اجتماعي، لا SDKs خارجية.</p>
+    <h3>٥. Cloud Firestore (النسخ الاحتياطي السحابي الاختياري)</h3>
+    <p>بالإضافة إلى التخزين المحلي، يتم <strong>نسخ البيانات التالية احتياطياً بشكل آمن في السحابة</strong> (Google Cloud Firestore):</p>
+    <ul>
+        <li>سجل الجلسات (معرّف البروتوكول، المشاعر، المدة)</li>
+        <li>إدخالات اليوميات (المشاعر، السؤال، النص)</li>
+        <li>التقدم (إجمالي الجلسات، السلسلة، توزيع المشاعر)</li>
+        <li>بيانات الملف الشخصي (الاسم، إعداد اللغة)</li>
+    </ul>
+    <p><strong>موقع التخزين:</strong> Google Cloud، منطقة الاتحاد الأوروبي.</p>
+    <p><strong>الوصول:</strong> أنت وحدك من يمكنه الوصول إلى بياناتك (مؤمّنة بقواعد أمان Firebase).</p>
+    <p><strong>إدخالات اليوميات لا يتم تحليلها أو تقييمها</strong> — فهي للتوثيق الشخصي فقط.</p>
+    <p>التطبيق يعمل بالكامل بدون اتصال سحابي. Firestore هو نسخ احتياطي إضافي فقط.</p>
 
-    <h3>٤. لا إعلانات</h3>
-    <p>سكينة لا يحتوي على إعلانات ولا SDKs إعلانية.</p>
+    <h3>٦. لا إعلانات</h3>
+    <p>سكينة <strong>لا يحتوي على إعلانات</strong> ولا أدوات إعلانية. <strong>لا يتم بيع البيانات لأطراف ثالثة.</strong></p>
 
-    <h3>٥. أمان البيانات</h3>
-    <p>جميع البيانات مُخزّنة محلياً في SharedPreferences على جهازك. بما أنه لا تُنقل أي بيانات، لا يوجد خطر تسريب من جهة الخادم.</p>
+    <h3>٧. أمان البيانات</h3>
+    <p>البيانات المحلية مُخزّنة على جهازك. البيانات السحابية تُنقل مُشفّرة (TLS) ومحمية في Google Cloud Firestore بقواعد أمان Firebase. فقط المستخدمون المُصادق عليهم يمكنهم قراءة وكتابة بياناتهم الخاصة.</p>
 
-    <h3>٦. خصوصية الأطفال</h3>
+    <h3>٨. خصوصية الأطفال</h3>
     <p>سكينة لا يجمع عن علم بيانات من أطفال دون ١٣ عاماً. التطبيق لا يحتوي على تسجيل أو مشتريات داخلية أو إعلانات.</p>
 
-    <h3>٧. حقوقك</h3>
+    <h3>٩. حقوقك</h3>
     <p>يمكنك في أي وقت:</p>
     <ul>
-        <li>حذف جميع البيانات المُخزّنة عبر <strong>الإعدادات → إعادة تعيين البيانات</strong></li>
+        <li>حذف جميع البيانات المحلية عبر <strong>الإعدادات → إعادة تعيين البيانات</strong></li>
         <li>إلغاء تثبيت التطبيق (يزيل جميع البيانات المحلية)</li>
+        <li><strong>طلب حذف بياناتك السحابية</strong> عبر البريد الإلكتروني (انظر الاتصال)</li>
     </ul>
 
-    <h3>٨. التغييرات المستقبلية</h3>
-    <p>إذا قدمنا ميزات تتضمن جمع بيانات (مثل المزامنة السحابية الاختيارية)، سنقوم بتحديث سياسة الخصوصية وإخطار المستخدمين قبل أي جمع للبيانات.</p>
+    <h3>١٠. التغييرات</h3>
+    <p>عند إجراء تغييرات جوهرية على سياسة الخصوصية، سيتم إخطار المستخدمين من خلال تحديث التطبيق. النسخة الحالية متاحة دائماً على هذا الرابط.</p>
 
-    <h3>٩. الاتصال</h3>
-    <p>لأسئلة الخصوصية:</p>
+    <h3>١١. الاتصال</h3>
+    <p>لأسئلة الخصوصية أو طلبات حذف البيانات:</p>
     <p>حسام أبو عيسى<br>
     البريد الإلكتروني: <a href="mailto:gptbusinesshub@gmail.com">gptbusinesshub@gmail.com</a></p>
 </div>
@@ -229,7 +328,7 @@
 <div class="footer">
     <div style="font-size: 24px; margin-bottom: 8px;">🕊️</div>
     <p>© 2026 Sakina — Islamischer Wellness Coach</p>
-    <p style="color: #00695C; font-size: 12px; margin-top: 4px;">Version 2.0 · Keine Daten. Keine Cloud. Nur Sakina.</p>
+    <p style="color: #00695C; font-size: 12px; margin-top: 4px;">Version 3.0 · Offline-First. Deine Daten. Deine Kontrolle.</p>
 </div>
 
 </body>
